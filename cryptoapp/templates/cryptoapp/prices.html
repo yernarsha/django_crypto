@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if crypto.Response %}
+  {{ search }} not found.
+{% else %}
+
+{% for key, value in crypto.DISPLAY.items %}
+<strong>Name</strong>: {{ key }}<br/>
+<strong>Price</strong>: {{ value.USD.PRICE }}<br/>
+<strong>Day High</strong>: {{ value.USD.HIGHDAY }}<br/>
+<strong>Day Low</strong>: {{ value.USD.LOWDAY }}<br/>
+<strong>Market Cap</strong>: {{ value.USD.MKTCAP }}<br/><br/>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
